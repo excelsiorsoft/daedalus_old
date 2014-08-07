@@ -25,7 +25,7 @@ public final class Quote extends AbstractDomain {
 	@Id
 	protected Long id;
 	
-	public final static String TICKER = "ticker";
+	//public final static String TICKER = "ticker";
 
 	//private final String ticker;
 	

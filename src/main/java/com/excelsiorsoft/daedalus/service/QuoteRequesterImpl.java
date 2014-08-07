@@ -3,7 +3,7 @@
  */
 package com.excelsiorsoft.daedalus.service;
 
-import static com.excelsiorsoft.daedalus.domain.Quote.TICKER;
+//import static com.excelsiorsoft.daedalus.domain.Quote.TICKER;
 import static com.excelsiorsoft.daedalus.service.datacollection.process.ExtractionProcessContext.EXTRACTION_CONTEXT;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.integration.Message;
 import org.springframework.stereotype.Component;
 
-import static com.excelsiorsoft.daedalus.domain.Quote.TICKER;
+//import static com.excelsiorsoft.daedalus.domain.Quote.TICKER;
 import static com.excelsiorsoft.daedalus.service.datacollection.process.ExtractionProcessContext.EXTRACTION_CONTEXT;
 
 import com.excelsiorsoft.daedalus.domain.Quote;
