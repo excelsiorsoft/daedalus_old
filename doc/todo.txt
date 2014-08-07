@@ -1,0 +1,105 @@
+1) 
+BuildSinglePutStrikeSeries.java ln. 112:
+change to strikesForCurrentCalendarCycle.put(strike.getValue(),strike);
+
+makes currentStrikeName reference unneeded
+
+2) 
+BuildSubsequentPutStrikeSeries.java ln. 58
+
+instead of creating a new QuoteCoordinate always, do the following:
+
+QuoteCoordinate pointer = context.getPointer();
+if (pointer == null){
+	 pointer = new QuoteCoordinate().setTicker(ticker).setExpirationCycleName(expCycleName);
+}else{
+	pointer.setTicker().setExpirationCycleName(expCycleName);
+}
+context.setPointer(pointer);
+
+Extract the whole thing into its own method, class
+
+3) 
+Type of the Quote should be Option/Future/Stock, etc.
+Type of Option.PUT should be an attribute of an individual Strike, currently it's an atribute on the Quote - needs change
+BuildAllPutStrikeSeries.java ln.48
+
+
+4)
+QuoteRequesterImpl.java ln.54 : need to simplify logic like so:
+
+if(context.getPointer()== null && context.getDocument() == null) => brandNewRequest(only quote) , set corresp. flag
+create a method that retrieves the url (context is a single param):
+if brandNewRequest -> urlBuilder(get the ticker from context)
+else {
+from all exp cycle on the quote on the context get specific exp cycle by its name(from the pointer on the context get exp  name), then get its url
+
+- ticker is alredy part of the context, we don't seem to be using TICKER header, remove it if so
+}
+
+
+5) BuildSinglePutStrikeSeries.java extract all validation in the process() - Asserts, etc. into a separate method
+see #12
+
+6) 
+StrikeSeriesMessageHandlerImpl.java ln.36 in handleMessage()
+wrap the raw html in a wrapper DocumentDescriptor with a flag isCleaned or isValidated to optimize multiple revalidation by XPathHelperImpl, when the
+latter calls htmlCleaner.clean() repeatedly irrespective if HTML has already been validated or not
+
+7) ugrade SpringIntegration to the newest release
+
+8) BuildSinglePutStrikeSeries.java ln.66 add here 
+strike.setType(PUT)
+create appropriate type field and get/set on Strike.java
+
+9) ExtractionProcessContext.java ln. 26 - set the timestamp on the Quote right after its creation 
+this.quote.setTimestamp(currentTime);
+
+add timestamp field onto Quote
+
+10) Instead of ticker field on Quote, replace it with complex type Underlying which itself has a ticker
+Create type Underlying with id, type (Stock, Future, etc.), ticker
+
+11) Allow for Quote persistance (see #12 before implementing):
+BuildCompleteQuote.java - 
+
+add a persist(context) method - a hook into persistent mechanism
+add a persistence service as @Autowird reference which will be used inside the above persist()
+override the process(context) from ExtractionStep like so:
+
+public void process(final ExtractionProcessContext context)
+			throws Exception {
+			super.process(context);
+			this.persist(context);
+			}
+			
+12) rather then #11, it's simpler to add persistence logic to DefaultMessageHandlerImpl.java after its line 41, context reference
+is available there like this:
+
+@Autowired
+persistenceService	
+
+Quote quote = context.getQuote();
+persistenceService.persist(quote);
+
+13) Change BuildSinglePutStrikeSeries.java name and process() logic to handle both puts and calls series
+ and rename BuildSinglePutStrikeSeries.java to remove Put from it, change all autowired refs to it everywhere
+also see #5
+
+create another constant for calls xpath expr
+rename the existing constant to reflect that it's for puts
+
+separate the logic inside process() to become a template method to call separate private methods, one for calls, one for puts either on the same class, or if too much - on a separate class
+
+14) Rename BuildSubsequentPutStrikeSeries.java to reflect that it handles both puts and call and all the autowired references to it everywhere
+
+15) Datomic project's Spring version in newer than this project's.  Need to attempt to upgrade to the same newest version as there.  May be issues with spring-integration compatibility.
+
+16) Datomic project has slf4j enabled, bring it into this project too, and reconfigure all logging instances accordingly.
+
+17) Need to make a multiproject maven configuration.
+
+18) Need to create a no-XML Spring configs in this project, also it needs to have a single java config file with multiple @Import of the rest of the module's configs.
+	see here for reference: E:\001_Java Related Stuff\My Research\2012\2012.12.17\Spring No XML Configuration - in web and in testing
+
+19) Need to enable git for source controlling. 

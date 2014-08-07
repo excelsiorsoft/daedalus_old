@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:http="http://www.springframework.org/schema/integration/http"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/integration
+		http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/http
+		http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
+		http://www.springframework.org/schema/integration/file
+        http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<context:annotation-config />
+	<context:component-scan base-package="com.excelsiorsoft.daedalus" />
+
+
+	<int:channel id="tickerChannel" />
+
+	<http:outbound-gateway id="html" request-channel="tickerChannel"
+		url="{url}"
+		http-method=" GET "
+		expected-response-type="java.lang.String" charset="UTF-8"
+		reply-channel="tickerResponseChannel">
+
+		<http:uri-variable name="url" expression="headers['URL']"  />
+
+	</http:outbound-gateway>
+	<!-- 	
+	 <file:outbound-gateway id="mover" request-channel="htmlResponseChannel"
+            reply-channel="tickerMessageHandlerChannel"
+            directory="E:\source\Daedalus\quote-provider\src\main\resources\META-INF\spring\integration\"
+            delete-source-files="true"/>
+ -->
+	<int:chain input-channel="tickerResponseChannel"
+		output-channel="tickerMessageHandlerChannel">
+		<!-- 
+		<int:transformer ref="htmlToDomainObjectsTransformer" />
+		-->
+		<int:object-to-string-transformer/>
+		<int:service-activator 
+		ref="defaultMessageHandler" method="handleMessage" />
+	</int:chain>
+	
+	<int:channel id="tickerMessageHandlerChannel" />
+<!--  
+	<int:service-activator input-channel="tickerMessageHandlerChannel"
+		ref="defaultMessageHandler" method="handleMessage" />
+-->		
+	<int:channel id="strikesChannel" />
+
+	<http:outbound-gateway id="strikes" request-channel="strikesChannel"
+
+		url="{expirationCycleUrl}" 
+		http-method="GET"
+		expected-response-type="java.lang.String" 
+		charset="UTF-8"
+		reply-channel="strikesResponseChannel">
+
+		<http:uri-variable name="expirationCycleUrl" expression="headers['URL']" />
+	</http:outbound-gateway>
+	
+	<int:channel id="strikesResponseChannel" />
+	
+	<int:chain input-channel="strikesResponseChannel"
+		output-channel="strikesMessageHandlerChannel">
+		<!-- 
+		<int:transformer ref="htmlToDomainObjectsTransformer" />
+		-->
+		<int:object-to-string-transformer/>
+		<int:service-activator 
+		ref="strikesMessageHandler" method="handleMessage" />
+	</int:chain>
+	
+	<int:channel id="strikesMessageHandlerChannel" />
+
+
+	<!--  This is DB related, later to be extracted in its own file -->
+	
+<!-- 	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="entityManagerFactory" class=" org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		
+		<property name="persistenceUnitName" value="versant_jpa" />
+		<property name="persistenceProvider">
+			<bean class="com.versant.jpa.core.VersantPersistence" />
+		</property>
+
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+	</bean> -->
+</beans>

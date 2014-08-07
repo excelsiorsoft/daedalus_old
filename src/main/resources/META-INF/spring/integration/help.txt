@@ -1,0 +1,34 @@
+http://www.w3.org/1999/xhtml - namespace
+
+id('yfncsumtab')/x:tbody/x:tr[2]/x:td[1]/x:strong - current month
+id('yfncsumtab')/x:tbody/x:tr[2]/x:td[1]/x:a - calendar months (except current month)
+
+count(id('yfncsumtab')/x:tbody/x:tr[2]/x:td[1]/x:table[6]/x:tbody/x:tr/x:td/x:table/x:tbody/x:tr) - all prices for the month(start from indx 2)
+id('yfncsumtab')/x:tbody/x:tr[2]/x:td[1]/x:table[6]/x:tbody/x:tr/x:td/x:table/x:tbody/x:tr[2]/x:td[1]/x:a/@href - price
+
+id('yfncsumtab')/x:tbody/x:tr[2]/x:td[1]/x:table[6]/x:tbody/x:tr/x:td/x:table/x:tbody/x:tr[2]/x:td[5] - bid
+id('yfncsumtab')/x:tbody/x:tr[2]/x:td[1]/x:table[6]/x:tbody/x:tr/x:td/x:table/x:tbody/x:tr[2]/x:td[6] - ask
+
+ 
+<http:outbound-gateway id="httpOutboundGateway" request-channel="httpOutboundGatewayRequestChannel" url="{outboundGatewayUrl}" reply-channel="httpOutboundGatewayReplyChannel" expected-response-type="java.lang.String" charset="UTF-8">
+	<http:uri-variable name="outboundGatewayUrl" expression="headers['X-CUSTOM-HTTP-REQUEST-URL']" />
+</http:outbound-gateway>
+
+"[\\?&]([^&=]+)=([^&=]+)"
+
+"([^?=&]+)(=([^&]*))?", "g"
+
+<a href="/q/op?s=GLW&amp;m=2013-01">Jan 13</a>
+
+Ranges:
+http://code.google.com/p/guava-libraries/wiki/RangesExplained
+
+ArciMath BigDecimal:
+http://users.belgacombusiness.net/arci/
+
+http://jtimepiece.sourceforge.net/
+http://jeval.sourceforge.net/
+http://joda-time.sourceforge.net/index.html
+http://jconvert.sourceforge.net/index.html
+http://www.tecnick.com/public/code/cp_dpage.php?aiocp_dp=junitconv
+http://timeandmoney.sourceforge.net/
