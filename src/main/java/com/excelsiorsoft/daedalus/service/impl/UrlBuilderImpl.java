@@ -1,10 +1,11 @@
 /**
  * 
  */
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus.service.impl;
 
 import org.springframework.stereotype.Component;
 
+import com.excelsiorsoft.daedalus.service.api.UrlBuilder;
 import com.excelsiorsoft.daedalus.service.datacollection.process.ExtractionProcessContext;
 
 /**

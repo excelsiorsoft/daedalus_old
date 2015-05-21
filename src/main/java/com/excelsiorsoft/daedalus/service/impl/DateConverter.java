@@ -1,4 +1,4 @@
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus.service.impl;
 
 /**
  * 

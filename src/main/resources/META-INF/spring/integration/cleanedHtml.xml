@@ -1714,7 +1714,7 @@ if(window.xzq_s)xzq_s();
   </body>
 </html>
 
-15:43:29.992 INFO  [main][com.excelsiorsoft.daedalus.service.HtmlCleaner] 
+15:43:29.992 INFO  [main][com.excelsiorsoft.daedalus.service.impl.HtmlCleaner] 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">

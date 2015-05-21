@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus.service.impl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import com.excelsiorsoft.daedalus.domain.AbstractDomain.NullPropertyFilter;
 import com.excelsiorsoft.daedalus.domain.Quote;
+import com.excelsiorsoft.daedalus.service.api.QuotePersistenceService;
 
 /**
  * @author Simeon

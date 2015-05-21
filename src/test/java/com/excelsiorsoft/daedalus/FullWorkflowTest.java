@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.excelsiorsoft.daedalus.service.QuoteRequester;
+import com.excelsiorsoft.daedalus.service.api.QuoteRequester;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"classpath*:/META-INF/spring/integration/data-collection-context.xml"})

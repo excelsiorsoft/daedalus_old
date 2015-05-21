@@ -21,8 +21,6 @@ import org.apache.log4j.Logger;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.excelsiorsoft.daedalus.service.StringConversionService;
-
 
 /**
  * Starts the Spring Context and will initialize the Spring Integration routes.

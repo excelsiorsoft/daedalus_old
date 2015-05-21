@@ -22,8 +22,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.excelsiorsoft.daedalus.service.QuoteRequester;
-import com.excelsiorsoft.daedalus.service.StringConversionService;
+import com.excelsiorsoft.daedalus.service.api.QuoteRequester;
 
 /**
  * Verify that the Spring Integration Application Context starts successfully.

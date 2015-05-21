@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus.service.impl;
 
 import net.sf.json.JsonConfig;
 import net.sf.json.util.PropertyFilter;

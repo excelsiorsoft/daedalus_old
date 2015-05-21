@@ -13,7 +13,7 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus;
 
 /**
  * Provides string manipulation services.

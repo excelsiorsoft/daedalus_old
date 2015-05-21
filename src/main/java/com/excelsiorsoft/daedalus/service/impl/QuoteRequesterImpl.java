@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus.service.impl;
 
 //import static com.excelsiorsoft.daedalus.domain.Quote.TICKER;
 import static com.excelsiorsoft.daedalus.service.datacollection.process.ExtractionProcessContext.EXTRACTION_CONTEXT;
@@ -14,6 +14,8 @@ import org.springframework.integration.core.MessagingTemplate;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 
+import com.excelsiorsoft.daedalus.service.api.QuoteRequester;
+import com.excelsiorsoft.daedalus.service.api.UrlBuilder;
 import com.excelsiorsoft.daedalus.service.datacollection.process.ExtractionProcessContext;
 
 /**

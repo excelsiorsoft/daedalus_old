@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus.service.impl;
 
 //import static com.excelsiorsoft.daedalus.domain.Quote.TICKER;
 import static com.excelsiorsoft.daedalus.service.datacollection.process.ExtractionProcessContext.*;
@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.integration.Message;
 import org.springframework.stereotype.Component;
 
+import com.excelsiorsoft.daedalus.service.api.DefaultMessageHandler;
 import com.excelsiorsoft.daedalus.service.datacollection.process.BuildSinglePutStrikeSeries;
 import com.excelsiorsoft.daedalus.service.datacollection.process.ExtractionProcessContext;
 

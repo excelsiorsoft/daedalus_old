@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.excelsiorsoft.daedalus.service.impl.StringUtilities;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"classpath*:/META-INF/spring/integration/data-collection-context.xml"})
 public class StringUtilitiesTest {

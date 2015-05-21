@@ -8,7 +8,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import com.excelsiorsoft.daedalus.service.XPathHelper;
+import com.excelsiorsoft.daedalus.service.api.XPathHelper;
 
 /**
  * @author Simeon

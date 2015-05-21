@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus.service.impl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -10,10 +10,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.integration.Message;
 import org.springframework.stereotype.Component;
 
+
+
+
 //import static com.excelsiorsoft.daedalus.domain.Quote.TICKER;
 import static com.excelsiorsoft.daedalus.service.datacollection.process.ExtractionProcessContext.EXTRACTION_CONTEXT;
 
 import com.excelsiorsoft.daedalus.domain.Quote;
+import com.excelsiorsoft.daedalus.service.api.DefaultMessageHandler;
+import com.excelsiorsoft.daedalus.service.api.QuotePersistenceService;
 import com.excelsiorsoft.daedalus.service.datacollection.process.BuildCompleteQuote;
 import com.excelsiorsoft.daedalus.service.datacollection.process.ExtractionProcessContext;
 

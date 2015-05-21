@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Component;
 
-import com.excelsiorsoft.daedalus.service.QuoteRequester;
+import com.excelsiorsoft.daedalus.service.api.QuoteRequester;
 
 /**
  * @author Simeon

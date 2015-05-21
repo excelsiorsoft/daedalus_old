@@ -1,5 +1,5 @@
 
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus.service.api;
 
 import com.excelsiorsoft.daedalus.service.datacollection.process.ExtractionProcessContext;
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus.service.impl;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -23,6 +23,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+
+import com.excelsiorsoft.daedalus.service.api.XPathHelper;
 
 /**
  * @author Simeon

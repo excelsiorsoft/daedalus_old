@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 import org.w3c.dom.NodeList;
 
 import com.excelsiorsoft.daedalus.domain.Quote;
+import com.excelsiorsoft.daedalus.service.api.XPathHelper;
 
 /**
  * @author Simeon

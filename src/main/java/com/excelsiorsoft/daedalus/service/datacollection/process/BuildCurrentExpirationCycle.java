@@ -11,8 +11,8 @@ import org.w3c.tidy.DOMTextImpl;
 
 import com.excelsiorsoft.daedalus.domain.ExpirationCycle;
 import com.excelsiorsoft.daedalus.domain.Quote;
-import com.excelsiorsoft.daedalus.service.DateConverter;
-import com.excelsiorsoft.daedalus.service.UrlBuilder;
+import com.excelsiorsoft.daedalus.service.api.UrlBuilder;
+import com.excelsiorsoft.daedalus.service.impl.DateConverter;
 
 /**
  * @author Simeon

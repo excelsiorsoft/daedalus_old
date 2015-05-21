@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft.daedalus.service;
+package com.excelsiorsoft.daedalus.service.api;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;

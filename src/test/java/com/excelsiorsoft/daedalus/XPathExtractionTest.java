@@ -19,7 +19,7 @@ import org.w3c.tidy.DOMElementImpl;
 import org.w3c.tidy.DOMNodeListImpl;
 import org.w3c.tidy.DOMTextImpl;
 
-import com.excelsiorsoft.daedalus.service.XPathHelper;
+import com.excelsiorsoft.daedalus.service.api.XPathHelper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"classpath*:/META-INF/spring/integration/data-collection-context.xml"})

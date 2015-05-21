@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.excelsiorsoft.daedalus.service.api.UrlBuilder;
+
 /**
  * @author Simeon
  *
@@ -24,7 +26,7 @@ public class UrlBuilderImplTest {
 	private UrlBuilder cut;
 
 	/**
-	 * Test method for {@link com.excelsiorsoft.daedalus.service.UrlBuilderImpl#forTicker(java.lang.String)}.
+	 * Test method for {@link com.excelsiorsoft.daedalus.service.impl.UrlBuilderImpl#forTicker(java.lang.String)}.
 	 */
 	@Test
 	public void testForTicker() {
@@ -33,7 +35,7 @@ public class UrlBuilderImplTest {
 	}
 
 	/**
-	 * Test method for {@link com.excelsiorsoft.daedalus.service.UrlBuilderImpl#forExpirationCycle(java.lang.String)}.
+	 * Test method for {@link com.excelsiorsoft.daedalus.service.impl.UrlBuilderImpl#forExpirationCycle(java.lang.String)}.
 	 */
 	@Test
 	public void testForExpirationCycle() {

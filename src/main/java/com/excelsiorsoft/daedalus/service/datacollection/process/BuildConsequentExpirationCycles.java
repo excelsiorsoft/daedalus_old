@@ -15,7 +15,7 @@ import org.w3c.tidy.DOMAttrImpl;
 import org.w3c.tidy.DOMTextImpl;
 
 import com.excelsiorsoft.daedalus.domain.ExpirationCycle;
-import com.excelsiorsoft.daedalus.service.UrlBuilder;
+import com.excelsiorsoft.daedalus.service.api.UrlBuilder;
 
 /**
  * @author Simeon
